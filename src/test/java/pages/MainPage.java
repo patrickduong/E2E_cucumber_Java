@@ -17,13 +17,8 @@ public class MainPage extends BasePage {
     @FindBy(id = "nav-search-submit-button")
     private WebElement search_btn;
 
-
-
-
-
-
-
-    public MainPage(WebDriver driver) {super(driver,EXPECTED_MAIN_PAGE_TITLE);
+    public MainPage(WebDriver driver) {
+        super(driver);
     }
 
     public void searchProduct(String productName) {

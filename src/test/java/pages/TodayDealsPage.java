@@ -12,10 +12,11 @@ public class TodayDealsPage extends BasePage {
     @FindBy(id = "sorting_dropdown0")
     private WebElement sortingDropdown;
 
-    public TodayDealsPage (WebDriver driver) {super(driver,TODAY_DEAL_TITLE);
+    public TodayDealsPage(WebDriver driver) {
+        super(driver);
     }
 
-    public void setSortingDropdown(String option){
-        this.selectFilterSearchPage(By.id(String.valueOf(sortingDropdown)),option);
-}
+    public void setSortingDropdown(String option) {
+        this.selectFilterSearchPage(By.id(String.valueOf(sortingDropdown)), option);
+    }
 }

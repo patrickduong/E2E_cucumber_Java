@@ -6,23 +6,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.URL;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 import static contraints.TestConstraints.DEFAULT_WAIT_SECONDS;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class BasePage {
 
-
-
     final WebDriver _driver;
     public static BasePage currentPage;
 
-    public BasePage(WebDriver driver, String title) {
+    public BasePage(WebDriver driver) {
         currentPage = this;
         _driver = driver;
-        getWait().until(titleIs(title));
     }
 
+    public String getPageTitle() {
+        return currentPage._driver.getTitle();
+    }
+
+    public void navigateTo(String url) {
+        currentPage._driver.navigate().to(url);
+    }
 
     public static <T extends BasePage> T getPage(Class<T> pageClass) {
         return pageClass.cast(checkNotNull(currentPage));
@@ -47,10 +53,9 @@ public class BasePage {
         }
     }
 
-    public void scrollUntilElementVisible(By element)
-    {
+    public void scrollUntilElementVisible(By element) {
         JavascriptExecutor js = (JavascriptExecutor) _driver;
-        js.executeScript("arguments[0].scrollIntoView()",_driver.findElement(element));
+        js.executeScript("arguments[0].scrollIntoView()", _driver.findElement(element));
     }
 
     public void selectFilterSearchPage(By element, String filter) {

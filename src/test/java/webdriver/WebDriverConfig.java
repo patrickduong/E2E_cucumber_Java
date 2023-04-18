@@ -41,35 +41,35 @@ public class WebDriverConfig {
 
     private void initBrowserDriverOnWin(String browserType) {
         switch (browserType) {
-            case "chrome":
+            case "chrome" -> {
                 System.setProperty(CHROME_DRIVER, DEFAULT_WINOS_RESOURCE_DIR + "chromedriver.exe");
                 setChromeDriver();
-                break;
-            case "firefox":
+            }
+            case "firefox" -> {
                 System.setProperty(FIREFOX_DRIVER, DEFAULT_WINOS_RESOURCE_DIR + "geckodriver.exe");
                 setFireFoxDriver();
-                break;
-            case "edge":
+            }
+            case "edge" -> {
                 System.setProperty(EDGE_DRIVER, DEFAULT_WINOS_RESOURCE_DIR + "msedgedriver.exe");
                 setEdgeDriver();
-                break;
+            }
         }
     }
 
     private void initBrowserDriverOnMac(String browserType) {
         switch (browserType) {
-            case "chrome":
+            case "chrome" -> {
                 System.setProperty(CHROME_DRIVER, DEFAULT_MACOS_RESOURCE_DIR + "chromedriver");
                 setChromeDriver();
-                break;
-            case "firefox":
+            }
+            case "firefox" -> {
                 System.setProperty(FIREFOX_DRIVER, DEFAULT_MACOS_RESOURCE_DIR + "geckodriver");
                 setFireFoxDriver();
-                break;
-            case "edge":
+            }
+            case "edge" -> {
                 System.setProperty(EDGE_DRIVER, DEFAULT_MACOS_RESOURCE_DIR + "msedgedriver");
                 setEdgeDriver();
-                break;
+            }
         }
 
     }

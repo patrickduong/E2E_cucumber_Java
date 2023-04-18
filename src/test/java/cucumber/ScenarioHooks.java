@@ -15,6 +15,9 @@ public class ScenarioHooks {
     private static final ScenarioContextUI contextUI = new ScenarioContextUI();
     public static WebDriver driver = contextUI.getWebDriver();
 
+    public MainPage awsMainPage = new MainPage(driver);
+
+
     @BeforeAll
     public static void before_all() {
 
@@ -27,9 +30,7 @@ public class ScenarioHooks {
 
     @Before("@ui")
     public void setupForUI() {
-        driver.navigate().to(contextUI.getDefaultUrl());
-        MainPage awsMainPage = new MainPage(driver);
-        awsMainPage.getClass();
+
 
     }
 
