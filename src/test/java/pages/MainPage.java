@@ -4,12 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static contraints.TestConstraints.EXPECTED_MAIN_PAGE_TITLE;
-
 public class MainPage extends BasePage {
-
-    @FindBy(linkText = "Today's Deals")
-    private WebElement todayDeal_lnk;
 
     @FindBy(id = "twotabsearchtextbox")
     private WebElement search_txt;
@@ -25,10 +20,6 @@ public class MainPage extends BasePage {
         search_txt.sendKeys(productName);
         search_btn.click();
     }
-
-
-
-
 
 
 }

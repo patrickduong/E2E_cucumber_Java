@@ -1,41 +1,40 @@
 package steps;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.PageFactory;
-import pages.BasePage;
 import pages.MainPage;
+import pages.TodayDealsPage;
 
 import java.util.Objects;
 
 import static cucumber.ScenarioHooks.driver;
 
-public class AMZMainSteps {
+public class AWSCommonSteps {
     private final MainPage awsMainPage;
+    private final TodayDealsPage awsTodayDealPage;
 
-    public AMZMainSteps() {
+
+    public AWSCommonSteps() {
         awsMainPage = new MainPage(driver);
+        awsTodayDealPage = new TodayDealsPage(driver);
     }
 
-    @When("user select {string} at top trending search")
+    @Then("^I select \"([^\"]*)\" at top trending search")
     public void userSelectAtTopTrendingSearch(String itemName) {
-        awsMainPage.scrollUntilElementVisible(By.cssSelector(itemName));
+        awsMainPage.clickLink(By.linkText(itemName));
     }
 
-    @Then("the page should display with title is {string}")
+    @Then("^the page should display with title is \"([^\"]*)\"")
     public void thePageShouldDisplayWithTitleIs(String pageTitle) {
         assert Objects.equals(awsMainPage.getPageTitle(), pageTitle);
     }
 
-    @When("user sort the the item by {string} order")
-    public void userSortTheTheItemByOrder(String arg0) {
-
+    @Then("^I sort the the item by \"([^\"]*)\" order")
+    public void userSortTheTheItemByOrder(String order) {
+        awsTodayDealPage.selectFilterSearchPage(By.name("sorting_dropdown0"),order);
     }
 
-    @And("user add a product to shopping cart")
+    @Then("user add a product to shopping cart")
     public void userAddAProductToShoppingCart() {
 
     }
@@ -44,7 +43,7 @@ public class AMZMainSteps {
     public void theSelectedItemIsAddedToShoppingCard() {
     }
 
-    @Given("user navigate to {string} url")
+    @Then("^I navigate to \"([^\"]*)\"$")
     public void userNavigateToUrl(String url) {
         awsMainPage.navigateTo(url);
     }

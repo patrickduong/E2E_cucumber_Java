@@ -4,8 +4,6 @@ import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import pages.MainPage;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,9 +12,6 @@ public class ScenarioHooks {
 
     private static final ScenarioContextUI contextUI = new ScenarioContextUI();
     public static WebDriver driver = contextUI.getWebDriver();
-
-    public MainPage awsMainPage = new MainPage(driver);
-
 
     @BeforeAll
     public static void before_all() {
