@@ -1,12 +1,7 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static contraints.TestConstraints.DEFAULT_WAIT_SECONDS;
 
 public class BasePage {
 
@@ -26,10 +21,6 @@ public class BasePage {
         currentPage.driver.navigate().to(url);
     }
 
-//    WebDriverWait getWait() {
-//        return new WebDriverWait(driver, DEFAULT_WAIT_SECONDS);
-//    }
-
     public void scrollPage(String position) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         switch (position) {
@@ -44,7 +35,7 @@ public class BasePage {
         js.executeScript("arguments[0].scrollIntoView()", driver.findElement(element));
     }
 
-    public void selectFilterSearchPage(By element, String filter) {
+    public void selectDropdownItem(By element, String filter) {
         Select dropdown = new Select(driver.findElement(element));
         dropdown.selectByVisibleText(filter);
     }

@@ -7,5 +7,5 @@ Feature: UI - Amazon Shopping Cart
     When I select "Today's Deals" at top trending search
     Then the page should display with title is "Today's Deals"
     Then I sort the the item by "Discount - high to low" order
-#    And user add a product to shopping cart
+    Then I search a product with name is "aa batteries"
 #    Then the selected item is added to shopping card

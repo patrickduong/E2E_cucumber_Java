@@ -14,6 +14,4 @@ public class TodayDealsPage extends BasePage {
         super(driver);
     }
 
-
-
 }

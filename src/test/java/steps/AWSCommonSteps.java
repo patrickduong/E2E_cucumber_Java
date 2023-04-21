@@ -20,7 +20,7 @@ public class AWSCommonSteps {
     }
 
     @Then("^I select \"([^\"]*)\" at top trending search")
-    public void userSelectAtTopTrendingSearch(String itemName) {
+    public void iSelectATopTrendingSearchItem(String itemName) {
         awsMainPage.clickLink(By.linkText(itemName));
     }
 
@@ -30,13 +30,18 @@ public class AWSCommonSteps {
     }
 
     @Then("^I sort the the item by \"([^\"]*)\" order")
-    public void userSortTheTheItemByOrder(String order) {
-        awsTodayDealPage.selectFilterSearchPage(By.name("sorting_dropdown0"),order);
+    public void iSortTheTheItemByOrder(String order) {
+        awsTodayDealPage.selectDropdownItem(By.name("sorting_dropdown0"), order);
     }
 
     @Then("user add a product to shopping cart")
     public void userAddAProductToShoppingCart() {
 
+    }
+
+    @Then("^I search a product with name is \"([^\"]*)\"")
+    public void iMakeASearchWithProductName(String productName) {
+        awsMainPage.searchProduct(productName);
     }
 
     @Then("the selected item is added to shopping card")
