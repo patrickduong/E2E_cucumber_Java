@@ -30,13 +30,13 @@ public class BasePage {
         }
     }
 
-    public void scrollUntilElementVisible(By element) {
+    public void scrollUntilElementVisible(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView()", driver.findElement(element));
+        js.executeScript("arguments[0].scrollIntoView()", element);
     }
 
-    public void selectDropdownItem(By element, String filter) {
-        Select dropdown = new Select(driver.findElement(element));
+    public void selectDropdownItem(WebElement element, String filter) {
+        Select dropdown = new Select(element);
         dropdown.selectByVisibleText(filter);
     }
 

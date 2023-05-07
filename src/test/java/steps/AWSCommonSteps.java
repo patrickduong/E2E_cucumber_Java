@@ -2,8 +2,9 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import pages.MainPage;
-import pages.TodayDealsPage;
+import org.openqa.selenium.support.PageFactory;
+import pages.amazon.MainPage;
+import pages.amazon.TodayDealsPage;
 
 import java.util.Objects;
 
@@ -15,8 +16,8 @@ public class AWSCommonSteps {
 
 
     public AWSCommonSteps() {
-        awsMainPage = new MainPage(driver);
-        awsTodayDealPage = new TodayDealsPage(driver);
+        awsMainPage = PageFactory.initElements(driver, MainPage.class);
+        awsTodayDealPage = PageFactory.initElements(driver, TodayDealsPage.class);
     }
 
     @Then("^I select \"([^\"]*)\" at top trending search")
@@ -30,8 +31,8 @@ public class AWSCommonSteps {
     }
 
     @Then("^I sort the the item by \"([^\"]*)\" order")
-    public void iSortTheTheItemByOrder(String order) {
-        awsTodayDealPage.selectDropdownItem(By.name("sorting_dropdown0"), order);
+    public void iSortTheTheItemByOrder(String orderOption) {
+        awsTodayDealPage.sortByOption(orderOption);
     }
 
     @Then("user add a product to shopping cart")
