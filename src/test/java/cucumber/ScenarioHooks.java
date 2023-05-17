@@ -9,7 +9,9 @@ import java.io.IOException;
 public class ScenarioHooks {
 
     private static final ScenarioContextUI contextUI = new ScenarioContextUI(System.getProperty("defaultos"), System.getProperty("defaultbrowserdriver"));
+    private static final ScenarioContextAPI contextAPI = new ScenarioContextAPI();
     public static WebDriver driver = contextUI.getWebDriver();
+
 
     @BeforeAll
     public static void before_all() {
@@ -31,5 +33,15 @@ public class ScenarioHooks {
         contextUI.getReport().captureFailScenario(scenario, driver);
     }
 
+    @Before("@api")
+    public void setupForAPI(){
+        ScenarioContextAPI.setupURL("https://jsonplaceholder.typicode.com");
+        contextAPI.getReport().getRestLogPrintStream();
+    }
+
+    @After("@api")
+    public void tearDownForApi(Scenario scenario) throws IOException {
+        contextAPI.getReport().write(scenario);
+    }
 
 }
