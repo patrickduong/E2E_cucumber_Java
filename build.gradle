@@ -50,7 +50,7 @@ dependencies {
 }
 
 clean.doFirst {
-    delete "$projectDir/target/cucumber-reports", "$projectDir/target/cucumber-html-reports"
+    delete "$projectDir/target/cucumber-reports", "$projectDir/target/cucumber-html-reports", "$projectDir/out"
 }
 
 cucumberReports {
@@ -70,9 +70,13 @@ cucumberReports {
 //}
 
 //approach_2: read from gradle.properties
-tasks.register('uiTest', Test) {
+tasks.register('demoTest', Test) {
     systemProperties project.properties.subMap(["defaultos", "defaultbrowserdriver"])
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+//    systemProperty "cucumber.options", System.getProperty("cucumber.options") // use for version lower than 6.x
+
 }
 
 //run with gradle cli: open terminal
-// gradle uiTest -Pdefaultos=mac -Pdefaultbrowserdriver=firefox
+// gradle demoTest -Pdefaultos=mac -Pdefaultbrowserdriver=firefox -Dcucumber.filter.tags="@ui"
+// gradle demoTest -Dcucumber.filter.tags="@api"

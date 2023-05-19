@@ -1,4 +1,4 @@
-package steps;
+package steps.api;
 
 import cucumber.ScenarioContextAPI;
 import io.cucumber.java.en.Then;

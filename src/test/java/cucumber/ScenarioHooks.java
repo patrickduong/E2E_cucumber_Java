@@ -2,16 +2,13 @@ package cucumber;
 
 import io.cucumber.java.*;
 import org.openqa.selenium.WebDriver;
-
 import java.io.IOException;
-
 
 public class ScenarioHooks {
 
     private static final ScenarioContextUI contextUI = new ScenarioContextUI(System.getProperty("defaultos"), System.getProperty("defaultbrowserdriver"));
     private static final ScenarioContextAPI contextAPI = new ScenarioContextAPI();
-    public static WebDriver driver = contextUI.getWebDriver();
-
+    public static WebDriver driver;
 
     @BeforeAll
     public static void before_all() {
@@ -24,7 +21,7 @@ public class ScenarioHooks {
 
     @Before("@ui")
     public void setupForUI() {
-
+        driver = contextUI.getWebDriver();
     }
 
     @After("@ui")

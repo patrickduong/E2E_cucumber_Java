@@ -1,4 +1,4 @@
-package steps;
+package steps.ui;
 
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
