@@ -80,3 +80,4 @@ tasks.register('demoTest', Test) {
 //run with gradle cli: open terminal
 // gradle demoTest -Pdefaultos=mac -Pdefaultbrowserdriver=firefox -Dcucumber.filter.tags="@ui"
 // gradle demoTest -Dcucumber.filter.tags="@api"
+// gradle demoTest -Dcucumber.filter.tags="@api or @ui" // run all test either with tag is @api or @ui
