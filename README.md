@@ -26,5 +26,6 @@
 
 ## NOTE
 + Feel free to update and customise this template base your own knowledge
-+ This test project has promblem with check page title when running directly with gradle.build or via cli. Temporary commented a step in feature file.
-
++ Need to enhance with CI server JenKin of serverless like Circle CI or Git-hub.
++ Need to handle for cross browser testing with other service like browser stack
++ Need to create the constructor for working on multiple environment (dev, staging, production).
