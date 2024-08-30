@@ -89,7 +89,7 @@ public class WebDriverConfig {
         if (Boolean.parseBoolean(System.getProperty("chromeHeadless"))) {
             options.addArguments("headless");
         }
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver(options);
     }
 
